@@ -7,14 +7,14 @@ Ontem, na etapa de baixar as dependecias da etapa 9 acabou demorando bastante e 
 Enfim, criei novamente o bucket com o comando: `gcloud storage buckets create gs://PROJETO_doc_bucket --location=us-central1`, e tentei seguir para:
 
 ```bash
-export DOC_BUCKET_NAME=$(gcloud storage buckets list --format="value(name)" | grep doc-bucket) 
+export DOC_BUCKET_NAME=$(gcloud storage buckets list --format="value(name)" | grep doc-bucket)
 gsutil cp ~/legal-eagle/court_cases/case-01.txt gs://$DOC_BUCKET_NAME/
 ```
 
 Onde ocorreu o erro:
 
 ```text
-export DOC_BUCKET_NAME=$(gcloud storage buckets list --format="value(name)" | grep doc-bucket) 
+export DOC_BUCKET_NAME=$(gcloud storage buckets list --format="value(name)" | grep doc-bucket)
 gsutil cp ~/legal-eagle/court_cases/case-01.txt gs://$DOC_BUCKET_NAME/
 Google recommends using Gcloud storage CLI (https://docs.cloud.google.com/storage/docs/discover-object-storage-gcloud) instead of gsutil. Please refer to migration guide (https://docs.cloud.google.com/storage/docs/gsutil-transition-to-gcloud) for assistance.
 InvalidUrlError: Cloud URL scheme should be followed by colon and two slashes: "://". Found: "gs:///".
@@ -39,7 +39,7 @@ Error processing file case-01.txt: 404 GET https://storage.googleapis.com/downlo
 
 Ai eu percebi que tinha criado um bucket com o comando que não seguia o tutorial do codelabs, apaguei ele e recriei seguindo as etapas lá do [codelabs](https://codelabs.developers.google.com/legal-eagle-rag/instructions?hl=pt-br#6)
 
-Ai voltei e executei o comando: `export DOC_BUCKET_NAME=$(gcloud storage buckets list --format="value(name)" | grep doc-bucket)` e agora deu certo. 
+Ai voltei e executei o comando: `export DOC_BUCKET_NAME=$(gcloud storage buckets list --format="value(name)" | grep doc-bucket)` e agora deu certo.
 
 Consegui enfim testar o CURL com:
 
@@ -59,7 +59,7 @@ curl -X POST -H "Content-Type: application/json" \
      }" http://localhost:8080/
 ```
 
-E consegui uma arquivo de case01.txt dentro do bucket. 
+E consegui uma arquivo de case01.txt dentro do bucket.
 
 ![bucket-file](./bucket-file.png)
 
@@ -69,11 +69,11 @@ Inclusive fiquei curioso sobre o uso do Firebase Storage x Google Cloud Storage,
 
 Na etapa 10, achei legal o fato de ensinar a usar o assistente do gemini para gerar o Dockerfile:
 
-![gemini-Dockerfile](./gemini-assistent.md)
+![gemini-Dockerfile](./gemini-assistent.png)
 
 Eu sei que, não é tão mágico assim, mas achei uma forma legal / diferente de fazer, ao invés de só copiar e colar.
 
-Então aceitei a sugestão: 
+Então aceitei a sugestão:
 
 ![accept-suggestion](./accept-suggestion.png)
 
