@@ -133,8 +133,6 @@ curl -X POST -H "Content-Type: application/json" \\
 
 Funcionou perfeitamente! O arquivo foi dividido em "chunks" (pedaços de texto), transformado em embeddings e salvo no Firestore.
 
-![Visualização dos chunks e embeddings salvos no banco de dados Firestore](images/chunks.png)
-
 ## 5. Docker e o Gemini Code Assist
 
 Chegou a hora de empacotar nossa função em uma imagem Docker para subir no Artifact Registry.
